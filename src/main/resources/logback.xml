@@ -9,7 +9,7 @@
     <logger name="pl.allegro" level="DEBUG" />
     <logger name="org.springframework.web" level="DEBUG" />
 
-    <root level="DEBUG">
+    <root level="INFO">
         <appender-ref ref="STDOUT"/>
     </root>
 
