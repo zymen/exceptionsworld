@@ -2,7 +2,7 @@ package net.zymen.exceptionsworld.models;
 
 import org.springframework.data.annotation.Id;
 
-public class PackageClass {
+public class PackageClassInfo {
 
     @Id
     private int id;

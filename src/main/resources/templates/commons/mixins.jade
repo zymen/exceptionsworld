@@ -7,7 +7,7 @@ mixin nav(name, id, style)
                 span.icon-bar
                 span.icon-bar
                 span.icon-bar
-            a.navbar-brand(href="#")= name
+            a.navbar-brand(href="/")= name
 
         .collapse.navbar-collapse( id=id )
             ul.nav.navbar-nav
@@ -32,3 +32,17 @@ mixin nav_header
         block
 
 //- End navbar mixins
+
+
+//dev only
+mixin lorem
+    p
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut mi ut dolor convallis iaculis.
+        Duis nibh massa, auctor vitae dignissim quis, faucibus eu elit. Mauris sit amet pharetra orci,
+        quis vulputate erat. Fusce maximus enim imperdiet bibendum hendrerit. Donec luctus nunc est,
+        eu vehicula erat elementum in. Pellentesque imperdiet et est at lobortis. Maecenas non nulla enim.
+        Nullam ut mi eleifend, fringilla tellus in, sodales lorem. Nullam dapibus quis felis at lacinia.
+        Suspendisse vestibulum porta odio, id condimentum nisi bibendum vel. Donec tempus ipsum orci,
+        eu suscipit dui pharetra id.
+
+//dev-end

@@ -1,6 +1,17 @@
 extends ../layouts/base
 
 block content
-    h1.test How are you? - main page
+    .raw
+        .col-xs-8
+            h1 ClassNotFoundException - What happend? Solution!
 
-    p This is really nice test ;)
+            +lorem
+            +lorem
+            +lorem
+            +lorem
+            +lorem
+
+        .col-xs-4
+            h3 Most popular classes
+
+            +pci-topList(topPackageClassInfoList)

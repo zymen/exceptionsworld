@@ -1,4 +1,5 @@
 include ../commons/mixins
+include ../models/packageClassInfo/aggregator
 
 doctype
 html( lang="en" )
@@ -13,7 +14,7 @@ html( lang="en" )
  
     body
         .container
-            +nav("Project name", "dropdown_menu")
+            +nav("ClassNotFoundException", "dropdown_menu")
                 +nav_item( "index.html", "active" ) Home
                 +nav_item( "about.html" ) About
                 +nav_item( "contact.html" ) Contact

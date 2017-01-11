@@ -1,0 +1,32 @@
+extends ../../layouts/base
+
+block content
+    .row
+        .col-xs-12
+            h1 java.lang.ClassNotFoundException: #{packageClassInfo.getFullClassName()}
+
+    .row
+        .col-xs-12
+            ul.nav.nav-tabs
+                li(role="presentation").active
+                    a Gradle
+
+                li(role="presentation")
+                    a Maven
+
+                li(role="presentation")
+                    a Another
+
+    .row
+        .col-xs-12
+            h2 Example exception thrown during execution of code
+            pre.
+                java.lang.ClassNotFoundException: #{packageClassInfo.getFullClassName()}
+                    at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1714)
+                    at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1559)
+                    at java.lang.Class.getDeclaredMethods0(Native Method)
+                    at java.lang.Class.privateGetDeclaredMethods(Unknown Source)
+                    at java.lang.Class.getDeclaredMethods(Unknown Source)
+                    at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:571)
+                    at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:490)
+                    at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:474)
