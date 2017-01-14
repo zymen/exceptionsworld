@@ -57,7 +57,7 @@ task wrapper(type: Wrapper) {
 
 dependencies{
     compile 'org.springframework.boot:spring-boot-starter-web:1.4.1.RELEASE'
-    compile 'org.springframework.boot:spring-boot-starter-data-mongodb:1.4.1.RELEASE'
+//    compile 'org.springframework.boot:spring-boot-starter-data-mongodb:1.4.1.RELEASE'
 
     compile "com.domingosuarez.boot:spring-boot-starter-jade4j:0.3.0"
 
@@ -67,6 +67,12 @@ dependencies{
     compile 'com.jamesmurty.utils:java-xmlbuilder:1.1'
 
     compile 'org.apache.commons:commons-lang3:+'
+
+    // https://mvnrepository.com/artifact/com.h2database/h2
+    compile("org.springframework.boot:spring-boot-starter-data-jpa:+")
+    compile group: 'com.h2database', name: 'h2', version: '1.4.193'
+//    compile group: 'org.hibernate', name: 'hibernate-core', version: '4.3.8.Final'
+//    compile 'org.hibernate:hibernate-entitymanager:4.3.8.Final'
 
     testCompile 'org.springframework.boot:spring-boot-starter-test'
     testCompile 'org.mockito:mockito-core'

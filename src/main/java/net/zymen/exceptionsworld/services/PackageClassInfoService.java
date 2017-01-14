@@ -18,10 +18,16 @@ public class PackageClassInfoService {
     public PackageClassInfoService(PackageClassInfoRepository packageClassInfoRepository) {
         this.packageClassInfoRepository = packageClassInfoRepository;
     }
+
     public List<PackageClassInfo> getTopPackageClassInfoList() {
+        int random = r.nextInt();
+
         PackageClassInfo info = new PackageClassInfo();
-        info.setFullClassName("test - " + r.nextInt());
-        info.setId(r.nextInt());
+        info.setFullClassName("test - " + random);
+        info.setPackageArtifactId("artifact_id" + random);
+        info.setPackageGroupId("group_id" + random);
+        info.setPackageVersion("version"+random);
+        info.setId(random);
 
         packageClassInfoRepository.save(info);
 
@@ -29,6 +35,6 @@ public class PackageClassInfoService {
     }
 
     public PackageClassInfo getOne(String packageClassInfoKey) {
-        return packageClassInfoRepository.findOne(1236379188);
+        return packageClassInfoRepository.findOne(Integer.parseInt(packageClassInfoKey));
     }
 }
