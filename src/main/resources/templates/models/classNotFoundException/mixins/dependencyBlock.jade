@@ -2,19 +2,31 @@ mixin cnfe-dependecyBlock(packageClassInfo)
     #dependencyTabs
         ul.nav.nav-tabs(role='tablist')
             li.active(role='presentation')
-                a(href='#home', aria-controls='home', role='tab', data-toggle='tab') Gradle
+                a(href='#dependencyGradle', aria-controls='gradle', role='tab', data-toggle='tab') Gradle
             li(role='presentation')
-                a(href='#profile', aria-controls='profile', role='tab', data-toggle='tab') Maven
+                a(href='#dependencyMaven', aria-controls='profile', role='tab', data-toggle='tab') Maven
             li(role='presentation')
-                a(href='#messages', aria-controls='messages', role='tab', data-toggle='tab') Grails
+                a(href='#dependencySbt', aria-controls='messages', role='tab', data-toggle='tab') Sbt
 
         .tab-content
-            #home.tab-pane.active(role='tabpanel')
+            #dependencyGradle.tab-pane.active(role='tabpanel')
                 h6 Simplified form
-                p #{packageClassInfo.getPackageArtifactId()}:#{packageClassInfo.getPackageGroupId()}:#{packageClassInfo.getPackageVersion()}
+                pre '#{packageClassInfo.getPackageArtifactId()}:#{packageClassInfo.getPackageGroupId()}:#{packageClassInfo.getPackageVersion()}'
 
                 h6 Extended form
-                p name: '#{packageClassInfo.getPackageArtifactId()}', groupId: '#{packageClassInfo.getPackageGroupId()}', version: '#{packageClassInfo.getPackageVersion()}'
-            #profile.tab-pane(role='tabpanel') profile
-            #messages.tab-pane(role='tabpanel') messages.
+                pre name: '#{packageClassInfo.getPackageArtifactId()}', groupId: '#{packageClassInfo.getPackageGroupId()}', version: '#{packageClassInfo.getPackageVersion()}'
+
+            #dependencyMaven.tab-pane(role='tabpanel')
+                br
+                pre.
+                    &lt;dependency&gt;
+                        &lt;groupId&gt;#{packageClassInfo.getPackageGroupId()}&lt;/groupId&gt;
+                        &lt;artifactId&gt;#{packageClassInfo.getPackageArtifactId()}&lt;/artifactId&gt;
+                        &lt;version&gt;#{packageClassInfo.getPackageVersion()}&lt;/version&gt;
+                    &lt;/dependency&gt;
+
+            #dependencySbt.tab-pane(role='tabpanel')
+                br
+                pre.
+                    libraryDependencies += "#{packageClassInfo.getPackageGroupId()}" % "#{packageClassInfo.getPackageArtifactId()}" % "#{packageClassInfo.getPackageVersion()}"
 

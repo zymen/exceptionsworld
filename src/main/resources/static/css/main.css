@@ -1,0 +1,7 @@
+#dependencyTabs {
+    border-bottom: 1px solid #ecf0f1;
+}
+
+#dependencyTabs .tab-content h6{
+    font-weight: bold;
+}

@@ -22,7 +22,7 @@ public class ClassNotFoundExceptionController {
         this.packageClassInfoService = packageClassInfoService;
     }
 
-    @RequestMapping(value = "/{packageClassInfoKey}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{packageClassFullName}/{packageClassInfoKey}/", method = RequestMethod.GET)
     public ModelAndView packageClassInfoView(@PathVariable String packageClassInfoKey) {
         log.info("Building view for class '{}'", packageClassInfoKey);
 

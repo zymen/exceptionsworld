@@ -2,4 +2,4 @@ mixin pci-topList(topPackageClassInfoList)
     ul
         -for packageClassInfo in topPackageClassInfoList
             li
-                a(href="/classNotFoundException/" + packageClassInfo.getFullClassName()) #{packageClassInfo.getFullClassName()}
+                a(href="/classNotFoundException/" + packageClassInfo.getFullClassName() + "/" + packageClassInfo.getId() + "/") #{packageClassInfo.getFullClassName()}

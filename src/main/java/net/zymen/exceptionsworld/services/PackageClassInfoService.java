@@ -23,11 +23,10 @@ public class PackageClassInfoService {
         int random = r.nextInt();
 
         PackageClassInfo info = new PackageClassInfo();
-        info.setFullClassName("test - " + random);
+        info.setFullClassName("net.zymen.alfa" + random);
         info.setPackageArtifactId("artifact_id" + random);
         info.setPackageGroupId("group_id" + random);
         info.setPackageVersion("version"+random);
-        info.setId(random);
 
         packageClassInfoRepository.save(info);
 
@@ -35,6 +34,6 @@ public class PackageClassInfoService {
     }
 
     public PackageClassInfo getOne(String packageClassInfoKey) {
-        return packageClassInfoRepository.findOne(Integer.parseInt(packageClassInfoKey));
+        return packageClassInfoRepository.findOne(packageClassInfoKey);
     }
 }
