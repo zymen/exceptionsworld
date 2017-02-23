@@ -14,6 +14,7 @@ apply plugin: 'groovy'
 
 repositories {
     mavenCentral()
+    maven { url "https://jitpack.io" }
 }
 
 sourceSets {
@@ -67,6 +68,8 @@ dependencies{
     compile 'com.jamesmurty.utils:java-xmlbuilder:1.1'
 
     compile 'org.apache.commons:commons-lang3:+'
+
+//    compile 'com.github.kamranzafar:JCL:v2.3'
 
     // https://mvnrepository.com/artifact/com.h2database/h2
     compile("org.springframework.boot:spring-boot-starter-data-jpa:+")
