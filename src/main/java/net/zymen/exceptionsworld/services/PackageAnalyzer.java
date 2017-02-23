@@ -3,11 +3,14 @@ package net.zymen.exceptionsworld.services;
 import net.zymen.exceptionsworld.models.PackageInfo;
 import org.slf4j.Logger;
 import org.springframework.stereotype.Service;
-//import org.xeustechnologies.jcl.JarClassLoader;
-//import org.xeustechnologies.jcl.JclObjectFactory;
 
-import java.net.MalformedURLException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
@@ -18,16 +21,23 @@ public class PackageAnalyzer {
 
     public void analyzePackage(PackageInfo packageInfo) {
         log.info("Analyzing package {}", packageInfo);
-//
-//        JarClassLoader jarClassLoader = new JarClassLoader();
-//        try {
-//            jarClassLoader.add(new URL("https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-compiler-plugin/3.6.0/maven-compiler-plugin-3.6.0.jar"));
-//        } catch (MalformedURLException e) {
-//            log.error("Error during class loading");
-//        }
-//
-//        JclObjectFactory jclObjectFactory = JclObjectFactory.getInstance();
-//
-//        log.info("REsult {} ", jarClassLoader.getLoadedClasses());
+
+        List<String> classNames = new ArrayList<>();
+        ZipInputStream zip = null;
+
+        try {
+            try(InputStream data = new URL(packageInfo.getJarUrl()).openStream()) {
+                zip = new ZipInputStream(data);
+                for (ZipEntry entry = zip.getNextEntry(); entry != null; entry = zip.getNextEntry()) {
+                    if (!entry.isDirectory() && entry.getName().endsWith(".class")) {
+                        // This ZipEntry represents a class. Now, what class does it represent?
+                        String className = entry.getName().replace('/', '.'); // including ".class"
+                        classNames.add(className.substring(0, className.length() - ".class".length()));
+                    }
+                }
+            }
+        } catch (IOException e) {
+            log.error("Error during analyzing package {}", packageInfo, e);
+        }
     }
 }

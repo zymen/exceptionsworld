@@ -59,4 +59,15 @@ public class PackageInfo {
     public void setAnalyzed(boolean analyzed) {
         isAnalyzed = analyzed;
     }
+
+    public String getJarUrl() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("https://repo.maven.apache.org/maven2/");
+        builder.append(getGroupId().replace(".", "/")).append("/");
+        builder.append(getArtifactId()).append("/");
+        builder.append(getVersion()).append("/");
+        builder.append(getArtifactId()).append("-").append(getVersion()).append(".jar");
+
+        return builder.toString();
+    }
 }

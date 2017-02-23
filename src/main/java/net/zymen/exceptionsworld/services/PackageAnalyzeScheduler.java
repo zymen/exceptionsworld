@@ -30,8 +30,10 @@ public class PackageAnalyzeScheduler {
     public void analyzeWaitingPackages() {
         log.info("Processing not analyzed packages");
 
-        List<PackageInfo> packageInfoList = packageInfoRepository.findByIsAnalyzed(false, new PageRequest(0, 5));
+        packageInfoRepository.findAll().forEach(packageAnalyzer::analyzePackage);
 
-        packageInfoList.forEach(packageAnalyzer::analyzePackage);
+//        List<PackageInfo> packageInfoList = packageInfoRepository.findByIsAnalyzed(false, new PageRequest(0, 5));
+//
+//        packageInfoList.forEach(packageAnalyzer::analyzePackage);
     }
 }

@@ -1,4 +1,4 @@
 spring:
   data:
     mongodb:
-      uri: localhost:27017/exceptionsworld
+      uri: mongodb://localhost:27017/exceptionsworld
