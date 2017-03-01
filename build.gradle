@@ -1,16 +1,21 @@
 buildscript{
+    ext.kotlin_version = '1.0.6'
+
     repositories {
         mavenCentral()
     }
 
     dependencies{
         classpath("org.springframework.boot:spring-boot-gradle-plugin:+")
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
 apply plugin: 'application'
 apply plugin: 'java'
 apply plugin: 'groovy'
+apply plugin: 'scala'
+apply plugin: 'kotlin'
 
 repositories {
     mavenCentral()
@@ -24,6 +29,7 @@ sourceSets {
         compileClasspath = sourceSets.main.output + configurations.testRuntime
         runtimeClasspath = output + compileClasspath + configurations.testRuntime
     }
+    main.java.srcDirs += 'src/main/kotlin'
 }
 
 mainClassName = 'net.zymen.exceptionsworld.App'
@@ -50,9 +56,13 @@ dependencies{
     compile group: 'commons-io', name: 'commons-io', version: '2.5'
 
     compile 'com.jamesmurty.utils:java-xmlbuilder:1.1'
+    compile 'org.scala-lang.modules:scala-xml_2.11:1.0.6'
 
     compile 'org.apache.commons:commons-lang3:+'
 
+    compile 'org.scala-lang:scala-library:2.11.8'
+
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
    // compile 'com.github.kamranzafar:JCL:v2.3'
 
     // https://mvnrepository.com/artifact/com.h2database/h2

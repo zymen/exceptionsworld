@@ -20,6 +20,15 @@ public class PackageInfo {
 
     private boolean isAnalyzed = false;
 
+    public PackageInfo(String artifactId, String groupId, String version) {
+        this.artifactId = artifactId;
+        this.groupId = groupId;
+        this.version = version;
+    }
+
+    public PackageInfo() {
+    }
+
     public Long getId() {
         return id;
     }

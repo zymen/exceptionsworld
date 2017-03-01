@@ -26,7 +26,7 @@ public class PackageAnalyzeScheduler {
         this.packageInfoRepository = packageInfoRepository;
     }
 
-    @Scheduled(fixedDelay = 5000)
+  //  @Scheduled(fixedDelay = 5000)
     public void analyzeWaitingPackages() {
         log.info("Processing not analyzed packages");
 
